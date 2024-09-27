@@ -1,0 +1,9 @@
+.VSCodeCounter/
+.vscode/
+.versions/
+build/
+dist/
+bin/
+setuptools-build/
+*.egg-info/
+__pycache__/

@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+numpy = "*"
+pyaudio = "*"
+loguru = "*"
+rich = "*"
+click = "*"
+
+[dev-packages]
+pyinstaller = "*"
+
+[requires]
+python_version = "3.11"
