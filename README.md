@@ -20,9 +20,9 @@ CWI - is a command-line instrument capable of generating and playing Morse code 
 ## Features
 
 * Supports Latin and Cyrillic symbols, and some other special characters[^1].
+* Converts text input into Morse code and generates corresponding audio tones.
 * Customizable frequency, sample rate, and WPM.
 * Supports multiple tone generator types: Sine, Sawtooth, Triangle, Square.
-* Converts text input into Morse code and generates corresponding audio tones.
 * Plays the generated audio directly or saves it to a WAV file.
 * Supports both command-line arguments and reading messages from an input file.
 * Debugging mode with detailed logging output.
@@ -57,7 +57,7 @@ This will install all necessary dependencies as specified in the `setup.py` file
 
 Pre-built version is available. You can download it from the [Releases](https://github.com/CoMaar/CWI/releases).
 
-> [!IMPORTANT]
+> [!NOTE]
 > Executable was built using [PyInstaller](https://pyinstaller.org/en/stable/)
 > [Windows 10 x64]
 
@@ -91,8 +91,10 @@ Pre-built version is available. You can download it from the [Releases](https://
 4. Navigate to ./dist/ directory to find the executable
 
     ```bash
-    cd ./bin
-    ./cwi "SOS"
+    cd bin
+    cwi sos
+    # or
+    ./cwi sos
     ```
 
 ## Command-line Options
@@ -112,16 +114,16 @@ Pre-built version is available. You can download it from the [Releases](https://
 cwi --help
 
 # Play a simple morse message
-cwi SOS
+cwi sos
 
 # Play a long morse message
-cwi "MAYDAY HOTEL BRAVO X16"
+cwi "alfa bravo charlie hotel"
 
 # Save audio to a file
-cwi "Hello World" --output-file hello_world.wav
+cwi "hello world" --output-file hello_world.wav
 
 # Use a sawtooth wave generator at 1000 Hz
-cwi "CQ DX" -t saw -f 1000
+cwi "cq cq cq de 9987 gn sk" -t saw -f 1000
 
 # Read a message from a text file and save the audio:
 cwi --input-file message.txt --output-file message_audio.wav
