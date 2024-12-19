@@ -1,4 +1,4 @@
-include .env
+include .build_info
 
 pyi=pipenv run pyinstaller
 version=v$(BUILD_VERSION)
@@ -7,11 +7,10 @@ build:
 	$(pyi) setup.spec
 
 pack:
-	if not exist .versions mkdir .versions
-	tar -cvf "./.versions/${BUILD_NAME}_${BUILD_PLATFORM}_${version}.zip" -C "./dist/" "${BUILD_NAME}.exe"
 	if not exist bin mkdir bin
-	move .\dist\${BUILD_NAME}.exe ./bin/
-# I really hate windows style paths...
+	xcopy .\dist\cwi.exe .\bin\${BUILD_NAME}\\ /Y
+	if not exist .versions mkdir .versions
+	tar -cvf "./.versions/${BUILD_NAME}_${version}_${BUILD_PLATFORM}.zip" -C "./bin/" "${BUILD_NAME}"
 
 clear-build:
 	if exist build rd /s /q build
